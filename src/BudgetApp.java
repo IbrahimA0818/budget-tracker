@@ -4,20 +4,32 @@ import java.util.Scanner;
 public class BudgetApp {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
+        BudgetCategory groceries = new BudgetCategory("Groceries", 400, 375);
+        BudgetCategory rent = new BudgetCategory("Rent", 1350, 1350);
+        BudgetCategory dining = new BudgetCategory("Dining", 120, 185);
+        BudgetCategory transportation = new BudgetCategory("Transportation", 200, 190);
+        BudgetCategory entertainment = new BudgetCategory("Entertainment", 80, 115);
+        BudgetCategory utilities = new BudgetCategory("Utilities", 150, 165);
+            
+        System.out.println(groceries.getLimit());
 
         while(scan.hasNextLine()) {
-            String category = scan.nextLine();
+            // String category = scan.nextLine();
 
-            double limit = scan.nextDouble();
-            double spent = scan.nextDouble();
+            // double limit = scan.nextDouble();
+            // double spent = scan.nextDouble();
 
-            // Consume \n after spent input 
-            if(scan.hasNextLine()) scan.nextLine();
+            // // Consume \n after spent input 
+            // if(scan.hasNextLine()) scan.nextLine();
 
-            String limitString = String.format("$%.2f", limit);
+           
+
+            
+            /*String limitString = String.format("$%.2f", limit);
             String spentString = String.format("$%.2f", spent);
             System.out.println("The budget limit for " + category + " was: " + limitString + 
-                               " but the actual spend was " + spentString);
+                               " but the actual spend was " + spentString); 
+            */
         }
     }
 
