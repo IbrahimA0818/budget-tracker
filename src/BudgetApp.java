@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,26 +15,24 @@ public class BudgetApp {
         // BudgetCategory utilities = new BudgetCategory("Utilities", 150, 165);
             
         // System.out.println(groceries.getLimit());
+        
+        List<BudgetCategory> categories = new ArrayList<>();
 
-        while(scan.hasNextLine()) {
-             String category = scan.nextLine();
-             List<BudgetCategory> categories = new ArrayList<>();
+        while (scan.hasNextLine()) {
+            String name = scan.nextLine();
 
-             double limit = scan.nextDouble();
-             double spent = scan.nextDouble();
+            double limit = scan.nextDouble();
+            double spent = scan.nextDouble();
 
-            // Consume \n after spent input 
-             if(scan.hasNextLine()) scan.nextLine();
+            // Consume the \n after the spent value
+            if (scan.hasNextLine()) scan.nextLine();
 
-           
-
-            
-            String limitString = String.format("$%.2f", limit);
-            String spentString = String.format("$%.2f", spent);
-
-            System.out.println(categories);
-
+            categories.add(new BudgetCategory(name, limit, spent));
         }
+        scan.close();
+
+        Collections.sort(categories);
+        System.out.println(categories);
     }
 
     /**
